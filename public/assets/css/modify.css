@@ -1,0 +1,24 @@
+.modify-bg-button{
+    background-color: #0E0E23;
+    border-color: #0E0E23;
+}
+.modify-bg-button:hover{
+    background-color: #292A2B;
+    border-color: #292A2B;
+}
+.logo-text{
+    color: #FFFFFF;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+.logo-text-mobile{
+    color: #170C6B;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.text-label{
+    font-size: 11px;
+    color: red;
+}

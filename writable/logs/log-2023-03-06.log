@@ -1,0 +1,170 @@
+ERROR - 2023-03-06 18:24:28 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in E:\xampp\htdocs\SPPTerpadu\system\Database\MySQLi\Connection.php:170
+Stack trace:
+#0 E:\xampp\htdocs\SPPTerpadu\system\Database\MySQLi\Connection.php(170): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'spp_terpadu', 3306, '', 0)
+#1 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 E:\xampp\htdocs\SPPTerpadu\system\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\xampp\htdocs\SPPTerpadu\system\BaseModel.php(623): CodeIgniter\Model->doFirst()
+#6 E:\xampp\htdocs\SPPTerpadu\app\Controllers\Autentifikasi.php(51): CodeIgniter\BaseModel->first()
+#7 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(927): App\Controllers\Autentifikasi->validasi_login_admin()
+#8 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autentifikasi))
+#9 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\xampp\htdocs\SPPTerpadu\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 E:\xampp\htdocs\SPPTerpadu\system\Commands\Server\rewrite.php(46): require_once('E:\\xampp\\htdocs...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in E:\xampp\htdocs\SPPTerpadu\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 E:\xampp\htdocs\SPPTerpadu\system\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#4 E:\xampp\htdocs\SPPTerpadu\system\BaseModel.php(623): CodeIgniter\Model->doFirst()
+#5 E:\xampp\htdocs\SPPTerpadu\app\Controllers\Autentifikasi.php(51): CodeIgniter\BaseModel->first()
+#6 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(927): App\Controllers\Autentifikasi->validasi_login_admin()
+#7 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autentifikasi))
+#8 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\xampp\htdocs\SPPTerpadu\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 E:\xampp\htdocs\SPPTerpadu\system\Commands\Server\rewrite.php(46): require_once('E:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-03-06 18:24:28 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `t_akun_admin`
+WHERE `NamaPengguna` = :NamaPengguna:
+AND `KataSandi` = :KataSandi:
+AND `Aktivasi` = :Aktivasi:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(623): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Autentifikasi.php(51): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Autentifikasi->validasi_login_admin()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autentifikasi))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 18:26:55 --> Invalid file: error/V_404.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('error/V_404.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('error/V_404', [], true)
+ 3 APPPATH\Config\Routes.php(24): view('error/V_404')
+ 4 SYSTEMPATH\CodeIgniter.php(948): CodeIgniter\CodeIgniter->Config\{closure}('Controller method is not found: data_jurusan')
+ 5 SYSTEMPATH\CodeIgniter.php(370): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 18:42:57 --> Undefined variable $dt_admin
+in APPPATH\Views\admin\V_Data_kelas.php on line 52.
+ 1 APPPATH\Views\admin\V_Data_kelas.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $dt_admin', 'APPPATH\\Views\\admin\\V_Data_kelas.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\V_Data_kelas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/admin/V_Data_kelas', [], true)
+ 5 APPPATH\Controllers\Siswa.php(74): view('/admin/V_Data_kelas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->data_kelas()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 18:49:40 --> Array to string conversion
+in APPPATH\Controllers\Siswa.php on line 103.
+ 1 APPPATH\Controllers\Siswa.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Siswa.php', 103)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->form_kelas('all1c2NpS2FZODVwR2w2aDZUZE4zUT09', 'Mk55MUVOQzVaQmRpNHdaMW5zaU8wUT09')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 18:49:46 --> Array to string conversion
+in APPPATH\Controllers\Siswa.php on line 103.
+ 1 APPPATH\Controllers\Siswa.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Siswa.php', 103)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->form_kelas('all1c2NpS2FZODVwR2w2aDZUZE4zUT09', 'Mk55MUVOQzVaQmRpNHdaMW5zaU8wUT09')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 18:51:50 --> Undefined variable $cari_kelas
+in APPPATH\Controllers\Siswa.php on line 105.
+ 1 APPPATH\Controllers\Siswa.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cari_kelas', 'APPPATH\\Controllers\\Siswa.php', 105)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->form_kelas('ZnBKWEFrL2VaMFZCWjU5aWdGRHF2Zz09')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 18:52:03 --> Undefined variable $kelas
+in APPPATH\Views\admin\V_Form_kelas.php on line 39.
+ 1 APPPATH\Views\admin\V_Form_kelas.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kelas', 'APPPATH\\Views\\admin\\V_Form_kelas.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\V_Form_kelas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/admin/V_Form_kelas', [], true)
+ 5 APPPATH\Controllers\Siswa.php(106): view('/admin/V_Form_kelas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->form_kelas('ZnBKWEFrL2VaMFZCWjU5aWdGRHF2Zz09')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 18:59:46 --> Array to string conversion
+in APPPATH\Controllers\Siswa.php on line 205.
+ 1 APPPATH\Controllers\Siswa.php(205): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Siswa.php', 205)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->hapus_kelas('Y0hkbkUxSUJ0NVdsSWJMZWxYbThyQT09')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 19:01:06 --> Undefined array key "NamaKelas"
+in APPPATH\Views\admin\V_Form_kelas.php on line 44.
+ 1 APPPATH\Views\admin\V_Form_kelas.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "NamaKelas"', 'APPPATH\\Views\\admin\\V_Form_kelas.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\V_Form_kelas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/admin/V_Form_kelas', [], true)
+ 5 APPPATH\Controllers\Siswa.php(104): view('/admin/V_Form_kelas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->form_kelas('ZnBKWEFrL2VaMFZCWjU5aWdGRHF2Zz09')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 19:50:43 --> Invalid file: error/V_404.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('error/V_404.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('error/V_404', [], true)
+ 3 APPPATH\Config\Routes.php(24): view('error/V_404')
+ 4 SYSTEMPATH\CodeIgniter.php(948): CodeIgniter\CodeIgniter->Config\{closure}('Controller method is not found: data_jurusan')
+ 5 SYSTEMPATH\CodeIgniter.php(370): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 20:17:59 --> Undefined variable $Jurusan
+in APPPATH\Views\admin\V_Form_jurusan.php on line 39.
+ 1 APPPATH\Views\admin\V_Form_jurusan.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $Jurusan', 'APPPATH\\Views\\admin\\V_Form_jurusan.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\V_Form_jurusan.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/admin/V_Form_jurusan', [], true)
+ 5 APPPATH\Controllers\Siswa.php(270): view('/admin/V_Form_jurusan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->form_jurusan('ZnBKWEFrL2VaMFZCWjU5aWdGRHF2Zz09')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 20:18:01 --> Undefined variable $Jurusan
+in APPPATH\Views\admin\V_Form_jurusan.php on line 39.
+ 1 APPPATH\Views\admin\V_Form_jurusan.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $Jurusan', 'APPPATH\\Views\\admin\\V_Form_jurusan.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\V_Form_jurusan.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/admin/V_Form_jurusan', [], true)
+ 5 APPPATH\Controllers\Siswa.php(270): view('/admin/V_Form_jurusan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->form_jurusan('ZnBKWEFrL2VaMFZCWjU5aWdGRHF2Zz09')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-06 20:36:28 --> Undefined array key "Kelas"
+in APPPATH\Views\admin\V_Data_jurusan.php on line 45.
+ 1 APPPATH\Views\admin\V_Data_jurusan.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Kelas"', 'APPPATH\\Views\\admin\\V_Data_jurusan.php', 45)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\V_Data_jurusan.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/admin/V_Data_jurusan', [], true)
+ 5 APPPATH\Controllers\Siswa.php(240): view('/admin/V_Data_jurusan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->data_jurusan()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

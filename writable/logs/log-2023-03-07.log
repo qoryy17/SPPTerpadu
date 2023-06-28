@@ -1,0 +1,30 @@
+CRITICAL - 2023-03-07 19:06:27 --> Invalid file: error/V_404.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('error/V_404.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('error/V_404', [], true)
+ 3 APPPATH\Config\Routes.php(24): view('error/V_404')
+ 4 SYSTEMPATH\CodeIgniter.php(948): CodeIgniter\CodeIgniter->Config\{closure}('Controller method is not found: data_tahun_ajaran')
+ 5 SYSTEMPATH\CodeIgniter.php(370): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 20:00:33 --> Invalid file: error/V_404.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('error/V_404.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('error/V_404', [], true)
+ 3 APPPATH\Config\Routes.php(24): view('error/V_404')
+ 4 SYSTEMPATH\CodeIgniter.php(948): CodeIgniter\CodeIgniter->Config\{closure}('Controller method is not found: form_tahun_ajaran')
+ 5 SYSTEMPATH\CodeIgniter.php(370): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 20:51:22 --> Undefined array key "Jurusan"
+in APPPATH\Views\admin\V_Data_tahun_ajaran.php on line 45.
+ 1 APPPATH\Views\admin\V_Data_tahun_ajaran.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Jurusan"', 'APPPATH\\Views\\admin\\V_Data_tahun_ajaran.php', 45)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\V_Data_tahun_ajaran.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/admin/V_Data_tahun_ajaran', [], true)
+ 5 APPPATH\Controllers\Siswa.php(410): view('/admin/V_Data_tahun_ajaran', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->data_tahun_ajaran()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
