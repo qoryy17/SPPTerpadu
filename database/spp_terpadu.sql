@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 31, 2023 at 03:26 PM
+-- Host: 127.0.0.1:3308
+-- Generation Time: Jun 28, 2023 at 01:49 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -93,6 +93,18 @@ CREATE TABLE `t_jurusan` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `t_jurusan`
+--
+
+INSERT INTO `t_jurusan` (`IDJurusan`, `Jurusan`, `IDAkunAdmin`, `created_at`, `updated_at`) VALUES
+('J1002036837', 'Rekayasa Perangkat Lunak', 0, '2023-03-06 20:36:28', '2023-03-06 20:36:28'),
+('J1086363300', 'Tata Boga', 0, '2023-03-06 20:41:21', '2023-03-06 20:41:21'),
+('J1856856198', 'Tata Kecantikan', 0, '2023-03-06 20:41:33', '2023-03-06 20:41:33'),
+('J472900260', 'Tata Busana', 0, '2023-03-06 20:41:11', '2023-03-06 20:41:11'),
+('J578857808', 'Akomodasi Perhotelan', 0, '2023-03-06 20:41:01', '2023-03-06 20:41:01'),
+('J682378929', 'Teknik Komputer &amp; Jaringan', 0, '2023-03-06 20:40:44', '2023-03-06 20:40:44');
+
 -- --------------------------------------------------------
 
 --
@@ -112,7 +124,7 @@ CREATE TABLE `t_kelas` (
 --
 
 INSERT INTO `t_kelas` (`IDKelas`, `Kelas`, `IDAkunAdmin`, `created_at`, `updated_at`) VALUES
-('1124852121', 'XII', 0, '2023-01-28 23:29:31', '2023-01-28 23:29:31'),
+('1124852121', 'XII', 0, '2023-01-28 23:29:31', '2023-03-06 18:58:40'),
 ('1239018499', 'X', 0, '2023-01-28 22:54:58', '2023-01-28 22:54:58'),
 ('2005864239', 'XI', 0, '2023-01-28 23:27:53', '2023-01-28 23:27:53');
 
@@ -153,7 +165,29 @@ CREATE TABLE `t_logs_admin` (
 --
 
 INSERT INTO `t_logs_admin` (`IDLogs`, `IDAkunAdmin`, `Waktu`, `Aktivitas`, `created_at`, `updated_at`) VALUES
-(11, 0, '2023-01-28 23:29:31', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 28-January-2023 23:29:31 parameters = {\"IDKelas\":\"1124852121\",\"Kelas\":\"XII\",\"IDAkunAdmin\":\"0\"}', '2023-01-28 23:29:31', '2023-01-28 23:29:31');
+(11, 0, '2023-01-28 23:29:31', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 28-January-2023 23:29:31 parameters = {\"IDKelas\":\"1124852121\",\"Kelas\":\"XII\",\"IDAkunAdmin\":\"0\"}', '2023-01-28 23:29:31', '2023-01-28 23:29:31'),
+(12, 0, '2023-03-06 18:25:10', '[Info] : Qori ChairawanTelah login aplikasi pada tanggal 06-March-2023 18:25:10', '2023-03-06 18:25:10', '2023-03-06 18:25:10'),
+(13, 0, '2023-03-06 18:38:28', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 06-March-2023 18:38:28 parameters = {\"IDKelas\":\"253993401\",\"Kelas\":\"XIII\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 18:38:28', '2023-03-06 18:38:28'),
+(14, 0, '2023-03-06 18:58:33', '[Info] : Qori ChairawanTelah memperbarui kelas baru pada tanggal 06-March-2023 18:58:33 parameters = {\"IDKelas\":\"1124852121\",\"Kelas\":\"XII1\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 18:58:33', '2023-03-06 18:58:33'),
+(15, 0, '2023-03-06 18:58:41', '[Info] : Qori ChairawanTelah memperbarui kelas baru pada tanggal 06-March-2023 18:58:41 parameters = {\"IDKelas\":\"1124852121\",\"Kelas\":\"XII\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 18:58:41', '2023-03-06 18:58:41'),
+(16, 0, '2023-03-06 18:58:46', '[Info] : Qori ChairawanMenghapus sebuah kelas pada tanggal 06-March-2023 18:58:46 parameters = {\"IDKelas\":\"XIII\"}', '2023-03-06 18:58:46', '2023-03-06 18:58:46'),
+(17, 0, '2023-03-06 19:01:02', '[Info] : Qori ChairawanMenghapus sebuah kelas pada tanggal 06-March-2023 19:01:02 parameters = {\"IDKelas\":\"253993401\"}', '2023-03-06 19:01:02', '2023-03-06 19:01:02'),
+(18, 0, '2023-03-06 19:01:35', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 06-March-2023 19:01:35 parameters = {\"IDKelas\":\"1710587297\",\"Kelas\":\"XIII\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 19:01:35', '2023-03-06 19:01:35'),
+(19, 0, '2023-03-06 19:02:27', '[Info] : Qori ChairawanMenghapus sebuah kelas pada tanggal 06-March-2023 19:02:27 parameters = {\"IDKelas\":\"1710587297\"}', '2023-03-06 19:02:27', '2023-03-06 19:02:27'),
+(20, 0, '2023-03-06 20:36:28', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 06-March-2023 20:36:28 parameters = {\"IDJurusan\":\"J1002036837\",\"Jurusan\":\"Rekayasa Perangkat Lunak\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 20:36:28', '2023-03-06 20:36:28'),
+(21, 0, '2023-03-06 20:40:44', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 06-March-2023 20:40:44 parameters = {\"IDJurusan\":\"J682378929\",\"Jurusan\":\"Teknik Komputer &amp; Jaringan\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 20:40:44', '2023-03-06 20:40:44'),
+(22, 0, '2023-03-06 20:41:01', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 06-March-2023 20:41:01 parameters = {\"IDJurusan\":\"J578857808\",\"Jurusan\":\"Akomodasi Perhotelan\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 20:41:01', '2023-03-06 20:41:01'),
+(23, 0, '2023-03-06 20:41:11', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 06-March-2023 20:41:11 parameters = {\"IDJurusan\":\"J472900260\",\"Jurusan\":\"Tata Busana\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 20:41:11', '2023-03-06 20:41:11'),
+(24, 0, '2023-03-06 20:41:21', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 06-March-2023 20:41:21 parameters = {\"IDJurusan\":\"J1086363300\",\"Jurusan\":\"Tata Boga\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 20:41:21', '2023-03-06 20:41:21'),
+(25, 0, '2023-03-06 20:41:33', '[Info] : Qori ChairawanTelah menambahkan kelas baru pada tanggal 06-March-2023 20:41:33 parameters = {\"IDJurusan\":\"J1856856198\",\"Jurusan\":\"Tata Kecantikan\",\"IDAkunAdmin\":\"0\"}', '2023-03-06 20:41:33', '2023-03-06 20:41:33'),
+(26, 0, '2023-03-07 18:29:46', '[Info] : Qori ChairawanTelah login aplikasi pada tanggal 07-March-2023 18:29:46', '2023-03-07 18:29:46', '2023-03-07 18:29:46'),
+(27, 0, '2023-03-07 18:53:38', '[Info] : Qori ChairawanTelah login aplikasi pada tanggal 07-March-2023 18:53:38', '2023-03-07 18:53:38', '2023-03-07 18:53:38'),
+(28, 0, '2023-03-07 19:03:06', '[Info] : Qori ChairawanTelah login aplikasi pada tanggal 07-March-2023 19:03:06', '2023-03-07 19:03:06', '2023-03-07 19:03:06'),
+(29, 0, '2023-03-07 20:51:21', '[Info] : Qori ChairawanTelah menambahkan tahun ajaran baru pada tanggal 07-March-2023 20:51:21 parameters = {\"IDTahunAjaran\":\"TA1468111851\",\"TahunAjaran\":\"2022\\/2023\",\"IDAkunAdmin\":\"0\"}', '2023-03-07 20:51:21', '2023-03-07 20:51:21'),
+(30, 0, '2023-03-07 21:12:12', '[Info] : Qori ChairawanTelah menambahkan tahun ajaran baru pada tanggal 07-March-2023 21:12:12 parameters = {\"IDTahunAjaran\":\"TA465137120\",\"TahunAjaran\":\"2023\\/2024\",\"IDAkunAdmin\":\"0\"}', '2023-03-07 21:12:12', '2023-03-07 21:12:12'),
+(31, 0, '2023-03-22 12:31:44', '[Info] : Qori ChairawanTelah login aplikasi pada tanggal 22-March-2023 12:31:44', '2023-03-22 12:31:44', '2023-03-22 12:31:44'),
+(32, 0, '2023-03-22 12:33:34', '[Info] : Qori ChairawanTelah login aplikasi pada tanggal 22-March-2023 12:33:34', '2023-03-22 12:33:34', '2023-03-22 12:33:34'),
+(33, 0, '2023-03-22 16:32:29', '[Info] : Qori Chairawan Telah login aplikasi pada tanggal 22-March-2023 16:32:29', '2023-03-22 16:32:29', '2023-03-22 16:32:29');
 
 -- --------------------------------------------------------
 
@@ -254,6 +288,14 @@ CREATE TABLE `t_tahun_ajaran` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t_tahun_ajaran`
+--
+
+INSERT INTO `t_tahun_ajaran` (`IDTahunAjaran`, `TahunAjaran`, `IDAkunAdmin`, `created_at`, `updated_at`) VALUES
+('TA1468111851', '2022/2023', 0, '2023-03-07 20:51:21', '2023-03-07 20:51:21'),
+('TA465137120', '2023/2024', 0, '2023-03-07 21:12:12', '2023-03-07 21:12:12');
 
 --
 -- Indexes for dumped tables
@@ -367,7 +409,7 @@ ALTER TABLE `t_kode_pembayaran`
 -- AUTO_INCREMENT for table `t_logs_admin`
 --
 ALTER TABLE `t_logs_admin`
-  MODIFY `IDLogs` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `IDLogs` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `t_logs_siswa`
