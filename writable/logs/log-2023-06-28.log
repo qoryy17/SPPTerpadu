@@ -1,0 +1,65 @@
+ERROR - 2023-06-28 19:09:11 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for localhos127t failed: No such host is known.  in E:\xampp\htdocs\SPPTerpadu\system\Database\MySQLi\Connection.php:170
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'E:\\xampp\\htdocs...', 170)
+#1 E:\xampp\htdocs\SPPTerpadu\system\Database\MySQLi\Connection.php(170): mysqli->real_connect('localhos127t:33...', 'root', Object(SensitiveParameterValue), 'spp_terpadu', 3306, '', 0)
+#2 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#4 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 E:\xampp\htdocs\SPPTerpadu\system\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#6 E:\xampp\htdocs\SPPTerpadu\system\BaseModel.php(623): CodeIgniter\Model->doFirst()
+#7 E:\xampp\htdocs\SPPTerpadu\app\Controllers\Autentifikasi.php(52): CodeIgniter\BaseModel->first()
+#8 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(927): App\Controllers\Autentifikasi->validasi_login_admin()
+#9 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autentifikasi))
+#10 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 E:\xampp\htdocs\SPPTerpadu\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 E:\xampp\htdocs\SPPTerpadu\system\Commands\Server\rewrite.php(46): require_once('E:\\xampp\\htdocs...')
+#13 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for localhos127t failed: No such host is known.  in E:\xampp\htdocs\SPPTerpadu\system\Database\MySQLi\Connection.php:170
+Stack trace:
+#0 E:\xampp\htdocs\SPPTerpadu\system\Database\MySQLi\Connection.php(170): mysqli->real_connect('localhos127t:33...', 'root', Object(SensitiveParameterValue), 'spp_terpadu', 3306, '', 0)
+#1 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 E:\xampp\htdocs\SPPTerpadu\system\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\xampp\htdocs\SPPTerpadu\system\BaseModel.php(623): CodeIgniter\Model->doFirst()
+#6 E:\xampp\htdocs\SPPTerpadu\app\Controllers\Autentifikasi.php(52): CodeIgniter\BaseModel->first()
+#7 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(927): App\Controllers\Autentifikasi->validasi_login_admin()
+#8 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autentifikasi))
+#9 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\xampp\htdocs\SPPTerpadu\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 E:\xampp\htdocs\SPPTerpadu\system\Commands\Server\rewrite.php(46): require_once('E:\\xampp\\htdocs...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for localhos127t failed: No such host is known.  in E:\xampp\htdocs\SPPTerpadu\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 E:\xampp\htdocs\SPPTerpadu\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 E:\xampp\htdocs\SPPTerpadu\system\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#4 E:\xampp\htdocs\SPPTerpadu\system\BaseModel.php(623): CodeIgniter\Model->doFirst()
+#5 E:\xampp\htdocs\SPPTerpadu\app\Controllers\Autentifikasi.php(52): CodeIgniter\BaseModel->first()
+#6 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(927): App\Controllers\Autentifikasi->validasi_login_admin()
+#7 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autentifikasi))
+#8 E:\xampp\htdocs\SPPTerpadu\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\xampp\htdocs\SPPTerpadu\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 E:\xampp\htdocs\SPPTerpadu\system\Commands\Server\rewrite.php(46): require_once('E:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-06-28 19:09:11 --> Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for localhos127t failed: No such host is known. 
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `t_akun_admin`
+WHERE `NamaPengguna` = :NamaPengguna:
+AND `KataSandi` = :KataSandi:
+AND `Aktivasi` = :Aktivasi:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(623): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Autentifikasi.php(52): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Autentifikasi->validasi_login_admin()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autentifikasi))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
