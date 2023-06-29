@@ -24,7 +24,7 @@ class Pengguna extends BaseController
 
     public function akun_siswa()
     {
-        return view('admin/V_Data_akun_siswa');
+        return view('admin/V_Data_akun_siswa', ['session' => \Config\Services::session()]);
     }
 
     public function akun_administrator()
