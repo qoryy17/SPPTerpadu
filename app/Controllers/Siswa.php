@@ -58,8 +58,81 @@ class Siswa extends BaseController
             'status_form' => $status_form,
             'kelas' => $this->MKelas->orderBy('Kelas', 'ASC')->findAll(),
             'jurusan' => $this->MJurusan->orderBy('Jurusan', 'ASC')->findAll(),
+            'tahun_ajaran' => $this->MTahunAjaran->orderBy('TahunAjaran', 'ASC')->findAll()
         );
         return view('/admin/V_Form_siswa', $data);
+    }
+    public function simpan_siswa($parameter = null)
+    {
+        // Terapkan aturan dalam validasi
+        $this->validation->setRules([
+            'NISN' => 'required|is_unique[t_siswa.NISN]',
+            'Nama' => 'required',
+            'TempatLahir' => 'required',
+            'TanggalLahir' => 'required',
+            'JenisKelamin' => 'required',
+            'Agama' => 'required',
+            'Alamat' => 'required',
+            'Kelas' => 'required',
+            'Jurusan' => 'required',
+            'TahunAjaran' => 'required'
+        ]);
+        // buat variabel untuk menjalankan validasi
+        $validasi = $this->validation->withRequest($this->request)->run();
+
+        // cek apakah data tervalidasi sesuai dengan aturan ?
+        if ($validasi) {
+            // buat sebuah variabel untuk menampung inputan pengguna 
+            if (decrypt_url($parameter) == 'Tambah') {
+                // jika parameter post merupakan tambah 
+                $parameters = array(
+                    'NISN' => encode_php_tags(htmlentities($this->request->getVar('NISN'))),
+                    'Nama' => encode_php_tags(htmlentities($this->request->getVar('Nama'))),
+                    'TempatLahir' => encode_php_tags(htmlentities($this->request->getVar('TempatLahir'))),
+                    'TanggalLahir' => encode_php_tags(htmlentities($this->request->getVar('TanggalLahir'))),
+                    'JenisKelamin' => encode_php_tags(htmlentities($this->request->getVar('JenisKelamin'))),
+                    'Agama' => encode_php_tags(htmlentities($this->request->getVar('Agama'))),
+                    'Alamat' => encode_php_tags(htmlentities($this->request->getVar('Alamat'))),
+                    'IDKelas' => encode_php_tags(htmlentities($this->request->getVar('Kelas'))),
+                    'IDJurusan' => encode_php_tags(htmlentities($this->request->getVar('Jurusan'))),
+                    'IDTahunAjaran' => encode_php_tags(htmlentities($this->request->getVar('TahunAjaran'))),
+                    'IDAkunAdmin' => encode_php_tags(htmlentities($this->session->get('IDAkunAdmin')))
+                );
+                // jalan sebuah query untuk menyimpan data siswa
+                $SQL = $this->MSiswa->insert($parameters);
+                $param_aktivitas = "Menambahkan";
+            } elseif (decrypt_url($parameter) == 'Perbarui') {
+                // jika parameter post merupakan perbarui
+                $parameters = array(
+                    'NISN' => encode_php_tags(htmlentities($this->request->getVar('NISN'))),
+                    'Nama' => encode_php_tags(htmlentities($this->request->getVar('Nama'))),
+                    'TempatLahir' => encode_php_tags(htmlentities($this->request->getVar('TempatLahir'))),
+                    'TanggalLahir' => encode_php_tags(htmlentities($this->request->getVar('TanggalLahir'))),
+                    'JenisKelamin' => encode_php_tags(htmlentities($this->request->getVar('JenisKelamin'))),
+                    'Agama' => encode_php_tags(htmlentities($this->request->getVar('Agama'))),
+                    'Alamat' => encode_php_tags(htmlentities($this->request->getVar('Alamat'))),
+                    'IDKelas' => encode_php_tags(htmlentities($this->request->getVar('Kelas'))),
+                    'IDJurusan' => encode_php_tags(htmlentities($this->request->getVar('Jurusan'))),
+                    'IDTahunAjaran' => encode_php_tags(htmlentities($this->request->getVar('TahunAjaran'))),
+                    'IDAkunAdmin' => encode_php_tags(htmlentities($this->session->get('IDAkunAdmin')))
+                );
+                // jalan sebuah query untuk memperbarui data siswa
+                $SQL = $this->MSiswa->save($parameters);
+                $param_aktivitas = "Memperbarui";
+            } else {
+                $this->session->setFlashdata('pesan', '
+                <script>window.onload = function() {
+                    swal({
+                        title: "Data Kelas",
+                        text: "Parameter Tidak Valid !",
+                        type: "error",
+                        confirmButtonColor: "#57a94f"
+                    });
+                }</script>
+                ');
+            }
+        } else {
+        }
     }
 
     public function detil_siswa($parameter = null)
