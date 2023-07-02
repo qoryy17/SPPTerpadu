@@ -66,7 +66,7 @@ class Siswa extends BaseController
     {
         // Terapkan aturan dalam validasi
         $this->validation->setRules([
-            'NISN' => 'required|is_unique[t_siswa.NISN]',
+            'NISN' => 'required|integer',
             'Nama' => 'required',
             'TempatLahir' => 'required',
             'TanggalLahir' => 'required',
@@ -79,17 +79,20 @@ class Siswa extends BaseController
         ]);
         // buat variabel untuk menjalankan validasi
         $validasi = $this->validation->withRequest($this->request)->run();
-
         // cek apakah data tervalidasi sesuai dengan aturan ?
         if ($validasi) {
             // buat sebuah variabel untuk menampung inputan pengguna 
             if (decrypt_url($parameter) == 'Tambah') {
                 // jika parameter post merupakan tambah 
+                $konversi1 = explode("-", encode_php_tags(htmlentities($this->request->getVar('TanggalLahir'))));
+                $tanggalphp1 = array($konversi1[2], $konversi1[0], $konversi1[1]);
+                $tanggal_lahir = implode("-", $tanggalphp1);
+
                 $parameters = array(
                     'NISN' => encode_php_tags(htmlentities($this->request->getVar('NISN'))),
                     'Nama' => encode_php_tags(htmlentities($this->request->getVar('Nama'))),
                     'TempatLahir' => encode_php_tags(htmlentities($this->request->getVar('TempatLahir'))),
-                    'TanggalLahir' => encode_php_tags(htmlentities($this->request->getVar('TanggalLahir'))),
+                    'TanggalLahir' => $tanggal_lahir,
                     'JenisKelamin' => encode_php_tags(htmlentities($this->request->getVar('JenisKelamin'))),
                     'Agama' => encode_php_tags(htmlentities($this->request->getVar('Agama'))),
                     'Alamat' => encode_php_tags(htmlentities($this->request->getVar('Alamat'))),
@@ -130,8 +133,73 @@ class Siswa extends BaseController
                     });
                 }</script>
                 ');
+                return redirect()->to(site_url('siswa/data_siswa'));
+            }
+            // cek apakah query berjalan ?
+            if ($SQL) {
+                //buat sebuah variabel untuk menampung logs aktivitas dari pengguna
+                $aktivitas = '[info] : ' . $this->session->get('NamaLengkap') . ' Telah ' . $param_aktivitas . ' Siswa Baru Pada Tanggal : ' . date('d-F-Y H:i:s') . ' parameters = ' . json_encode($parameters);
+                $logs = array(
+                    'IDAkunAdmin' => $this->session->get('IDAkunAdmin'),
+                    'Waktu' => date('Y-m-d H:i:s'),
+                    'Aktivitas' => $aktivitas
+                );
+                // simpan logs akitvitas ke dalam database
+                $this->MLogs->insert($logs);
+                // tampilkan pesan berhasil 
+                $this->session->setFlashdata('pesan', '<script>window.onload = function() {
+                    swal({
+                        title: "Data Siswa",
+                        text: "Data Siswa Berhasil Disimpan !",
+                        type: "success",
+                        confirmButtonColor: "#57a94f"
+                    });
+                }</script>');
+                // arahkan website ke halaman data siswa 
+                return redirect()->to(site_url('siswa/data_siswa'));
             }
         } else {
+            $this->session->setFlashdata('pesan', '<script>window.onload = function() {
+                swal({
+                    title: "Data Siswa",
+                    text: "Data Tidak Valid !",
+                    type: "error",
+                    confirmButtonColor: "#57a94f"
+                });
+            }</script>');
+            // Arahkan halaman website jika tidak valid
+            return redirect()->to(site_url('siswa/data_siswa'));
+        }
+    }
+    public  function hapus_siswa($NISNSiswa = null)
+    {
+        $parameter = array('NISN' => decrypt_url($NISNSiswa));
+        $SQL = $this->MSiswa->delete($parameter);
+        // cek apakah SQL berjalan ?
+        if ($SQL) {
+            // buat sebuah variabel untuk menghapus data aktivitas pada pengguna 
+            $aktivitas = '[Info] : ' . $this->session->get('NamaLengkap') . 'Telah Menghapus siswa pada tanggal ' . date('d-F-Y H:i:s') . ' Parameter =' . json_encode($parameter);
+            $logs = array(
+                'IDAkunAdmin' => $this->session->get('IDAkunAdmin'),
+                'Waktu' => date('Y-m-d H:i:s'),
+                'Aktivitas' => $aktivitas
+            );
+            // simpan aktivitas pengguna ke dalam database
+            $this->MLogs->insert($logs);
+
+            return redirect()->to(site_url('siswa/data_siswa'));
+        } else {
+            $this->session->setFlashdata('pesan', '
+            <script>window.onload = function() {
+                swal({
+                    title: "Data Siswa",
+                    text: "Data Siswa Gagal Dihapus !",
+                    type: "success",
+                    confirmButtonColor: "#57a94f"
+                });
+            }</script>
+            ');
+            return redirect()->to(site_url('siswa/data_siswa'));
         }
     }
 

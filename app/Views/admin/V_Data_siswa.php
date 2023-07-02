@@ -43,14 +43,32 @@
                             ?>
                                 <tr>
                                     <td><?= $no; ?></td>
-                                    <td><?= $data->NISN; ?></td>
-                                    <td><?= $data->Nama; ?></td>
-                                    <td><?= $data->Kelas; ?></td>
-                                    <td><?= $data->Jurusan; ?></td>
+                                    <td><?= $data['NISN']; ?></td>
+                                    <td><?= $data['Nama']; ?></td>
+                                    <td><?= $data['Kelas']; ?></td>
+                                    <td><?= $data['Jurusan']; ?></td>
                                     <td>
                                         <a href="<?= site_url('siswa/detil_siswa/'); ?>" title="Detil" class="btn btn-primary btn-sm"><i class="fa fa-clone"></i></a>
                                         <a href="" title="Edit" class="btn btn-secondary btn-sm"><i class="fa fa-pencil"></i></a>
-                                        <a href="" title="Hapus" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
+                                        <a onclick="swal({
+                                            title: 'Ingin Menghapus Siswa <?= $data['Nama']; ?> ?',
+                                            text: 'Data yang dihapus tidak dapat dikembalikan !',
+                                            type: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonClass: 'btn-danger',
+                                            confirmButtonText: 'Ya, Hapus',
+                                            cancelButtonText: 'Tidak, Batalkan Hapus',
+                                            closeOnConfirm: false,
+                                            closeOnCancel: false
+                                            },
+                                            function(isConfirm) {
+                                            if (isConfirm) {
+                                                document.location = '<?= base_url('siswa/hapus_siswa'); ?>/<?php echo encrypt_url($data['NISN']); ?>';
+                                                swal('Siswa', 'Siswa Berhasil Dihapus !.', 'success');
+                                            } else {
+                                                swal('Siswa', 'Siswa Batal Dihapus !', 'error');
+                                            }
+                                            });" href="#" title="Hapus" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
                             <?php
@@ -78,7 +96,8 @@
                 <div class="alert alert-warning" role="alert">
                     <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button">
                         <span aria-hidden="true">&times;</span></button>
-                    <strong>Perhatian !</strong> <br> Silahkan pilih kelas ataupun jurusan untuk mencetak data siswa, kosongkan keduanya apabila ingin mencetak seluruh data siswa.
+                    <strong>Perhatian !</strong> <br> Silahkan pilih kelas ataupun jurusan untuk mencetak data siswa,
+                    kosongkan keduanya apabila ingin mencetak seluruh data siswa.
                 </div>
                 <?= csrf_field(); ?>
                 <div class="form-group">
