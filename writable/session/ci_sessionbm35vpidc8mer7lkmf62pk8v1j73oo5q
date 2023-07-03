@@ -1,0 +1,10 @@
+__ci_last_regenerate|i:1688292059;csrf_spp_terpadu|s:32:"84f5e50c5d658dc1487a948e2887d562";_ci_previous_url|s:73:"http://localhost:8080/siswa/simpan_siswa/ZnBKWEFrL2VaMFZCWjU5aWdGRHF2Zz09";IDAkunAdmin|s:1:"0";NamaLengkap|s:14:"Qori Chairawan";Status|s:10:"Superadmin";Aktivasi|s:1:"Y";Foto|s:8:"user.jpg";LogStatus|s:32:"enlpakhkdnlVTUZYYzkwSE9rblFHQT09";pesan|s:361:"
+                <script>window.onload = function() {
+                    swal({
+                        title: "Data Kelas",
+                        text: "Data Siswa Berhasil Disimpan !",
+                        type: "success",
+                        confirmButtonColor: "#57a94f"
+                    });
+                }</script>
+                ";__ci_vars|a:1:{s:5:"pesan";s:3:"old";}

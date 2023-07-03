@@ -22,7 +22,7 @@
                 <p class="text-muted card-sub-title">Silahkan Kelola Akun Siswa Pada Halaman Ini...</p>
             </div>
             <div class="card-body">
-                <button style="margin-left: 15px;" class="btn btn-primary btn-sm mb-2"><i class="fa fa-plus"></i> Tambah</button>
+                <a href="<?= site_url('pengguna/form_akun_siswa/') . encrypt_url('Tambah'); ?>" style="margin-left: 15px;" class="btn btn-primary btn-sm mb-2"><i class="fa fa-plus"></i> Tambah</a>
                 <div class="table-responsive">
 
                     <table class="table table-bordered" id="example2">

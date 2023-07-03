@@ -26,10 +26,11 @@
                 <div class="alert alert-warning" role="alert">
                     <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button">
                         <span aria-hidden="true">&times;</span></button>
-                    <strong>Perhatian !</strong> Harap teliti dalam pengisian data siswa/i. Isilah data sesuai dengan inputan yang tersedia dalam formulir tambah data siswa
+                    <strong>Perhatian !</strong> Harap teliti dalam pengisian data siswa/i. Isilah data sesuai dengan
+                    inputan yang tersedia dalam formulir tambah data siswa
                 </div>
 
-                <form action="" method="POST" enctype="multipart/form-data" data-parsley-validate="">
+                <form action="<?= site_url('siswa/simpan_siswa/') . encrypt_url($status_form); ?>" method="POST" enctype="multipart/form-data" data-parsley-validate="">
                     <?= csrf_field(); ?>
                     <div class="row row-sm">
                         <div class="col-lg-6">
@@ -47,7 +48,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Tanggal Lahir <span class="tx-danger">*</span></label>
-                                <input class="form-control" placeholder="Tanggal Lahir" type="text" id="datepicker-date" autocapitalize="off" required>
+                                <input class="form-control" placeholder="Tanggal Lahir" type="text" id="datepicker-date" autocomplete="off" name="TanggalLahir" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Jenis Kelamin <span class="tx-danger">*</span></label>
@@ -82,7 +83,7 @@
                                     <?php
                                     foreach ($kelas as $dt_kelas) {
                                     ?>
-                                        <option value="<?= $dt_kelas['Kelas']; ?>"><?= $dt_kelas['Kelas']; ?></option>
+                                        <option value="<?= $dt_kelas['IDKelas']; ?>"><?= $dt_kelas['Kelas']; ?></option>
                                     <?php
                                     }
                                     ?>
@@ -95,7 +96,8 @@
                                     <?php
                                     foreach ($jurusan as $dt_jurusan) {
                                     ?>
-                                        <option value="<?= $dt_jurusan['Jurusan']; ?>"><?= $dt_jurusan['Jurusan']; ?></option>
+                                        <option value="<?= $dt_jurusan['IDJurusan']; ?>"><?= $dt_jurusan['Jurusan']; ?>
+                                        </option>
                                     <?php
                                     }
                                     ?>
@@ -104,20 +106,23 @@
                             <div class="form-group">
                                 <label class="form-label">Tahun Ajaran <span class="tx-danger">*</span></label>
                                 <select name="TahunAjaran" class="form-control select2" required>
-                                    <option label="-- Pilih Jurusan --"></option>
-
+                                    <option label="-- Pilih Tahun --"></option>
+                                    <?php foreach ($tahun_ajaran as $dt_tahun_ajaran) : ?>
+                                        <option value="<?= $dt_tahun_ajaran['IDTahunAjaran']; ?>">
+                                            <?= $dt_tahun_ajaran['TahunAjaran']; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>
-
-
                     </div>
 
                     <div class="row">
                         <div class="col-md-12">
                             <a href="<?= site_url('siswa/data_siswa'); ?>" class="btn btn-sm btn-warning" type="button"><i class="fa fa-reply"></i> Kembali</a>
-                            <button class="btn btn-sm btn-secondary" type="reset"><i class="fa fa-recycle"></i> Batal</button>
-                            <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-save"></i> Simpan</button>
+                            <button class="btn btn-sm btn-secondary" type="reset"><i class="fa fa-recycle"></i>
+                                Batal</button>
+                            <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-save"></i>
+                                Simpan</button>
                         </div>
                     </div>
                 </form>
